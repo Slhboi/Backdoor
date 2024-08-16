@@ -10,6 +10,7 @@ This project is designed to perform basic backdoor functionalities on a target m
 - Downloading: Retrieving files from the victim's machine.
 - Uploading: Sending files to the victim's machine.
 - Encrypting/Decrypting: Securely encrypting and decrypting files using various encryption techniques.
+- Persistence: Using the `persistent.py` script, the backdoor malware can be copied into the startup folder of the victim's machine, making it persistent and ensuring it runs automatically whenever the victim's machine is powered on.
 
 The backdoor malware is deployed on the victim's machine, while the listener code runs on the attacker's machine, allowing for seamless remote control without the victim's awareness.
 
@@ -22,3 +23,4 @@ This project is created strictly for educational purposes only.
 - Hacking, manipulation, or tampering with any systems or data without explicit permission is highly discouraged and could result in severe legal consequences.
 
 Please use this knowledge responsibly, and only for learning and ethical hacking within legal boundaries.
+
