@@ -1,8 +1,3 @@
-#left: 
-# must:     hide file by making .exe and less suspicious
-#           contorl the port choices
-# optional: method of placing backdoor
-
 
 import socket, struct, os, time
 from cryptography.fernet import Fernet
