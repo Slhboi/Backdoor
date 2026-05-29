@@ -1,6 +1,6 @@
 # Obfuscated RCE Backdoor Project
 
-This project demonstrates a remote command execution (RCE) backdoor with persistence and obfuscation capabilities, designed for educational cybersecurity experimentation in a controlled lab environment.
+This project demonstrates an obfuscated remote command execution (RCE) backdoor with persistence capabilities, designed for educational cybersecurity experimentation in a controlled lab environment.
 
 The system supports operations such as:
 
@@ -15,18 +15,23 @@ The system supports operations such as:
 
 ## Attack Demonstration
 
-The project includes a demonstration file named `VERY VERY CUTE CAT.jpeg.exe`, which represents a disguised executable used to demonstrate how social engineering and file masquerading can be used in malware delivery.
+The obfuscated version uses a loader-style setup to demonstrate how payload hiding and runtime decryption can work in a controlled lab environment.
 
-When executed in the lab environment:
+The project includes an executable named `print_hello_world.exe`, which is intentionally named to appear harmless as part of the social engineering demonstration.
 
-1. A cat image is displayed to appear harmless.
-2. A persistence component runs in the background and places the main payload in the startup directory under a different name.
-3. The main backdoor payload attempts to connect to a listener socket to simulate remote access.
+When `print_hello_world.exe` is executed:
 
-For safety, the included payloads are intentionally configured to be ineffective under normal conditions.
+1. The embedded stub is loaded and executed.
+2. The stub decrypts both the main payload and the persistence component at runtime.
+3. After decryption, the persistence component begins execution and attempts to place the payload in the startup directory.
+4. The main backdoor payload then begins execution and attempts to connect to the configured listener socket.
+5. At the same time, the program displays the message:
 
-* The persistence script uses a hardcoded test directory.
-* The backdoor uses a non-routable APIPA address, preventing real external communication unless deliberately modified in an authorized lab setup.
+```text
+This literally just prints hello world, I don't know what you were expecting
+```
+
+This is used to make the executable appear like a harmless joke program while the actual payload logic is handled in the background by the decrypted components.
 
 ## Obfuscation
 
@@ -37,10 +42,16 @@ Implemented obfuscation techniques include:
 * String encryption
 * Runtime string decryption
 * Function and variable renaming
-* Added control-flow noise
+* Control-flow noise
 * Reduced readability of sensitive logic
 
 These techniques were added for malware analysis practice and to understand how obfuscation affects detection, reverse engineering, and defensive investigation.
+
+## Safety Notes
+
+For demonstration purposes, the included payloads are intentionally configured to be ineffective under normal conditions.
+
+The project is intended to be analyzed and tested only inside a safe, isolated, and authorized lab environment.
 
 ## Demonstration Video
 
